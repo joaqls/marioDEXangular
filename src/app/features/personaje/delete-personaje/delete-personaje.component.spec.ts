@@ -50,8 +50,10 @@ describe('DeleteItemComponent', () => {
   });
 
   it('onEliminar should do nothing when itemId is undefined', () => {
+    spyOn(component.cerrar, 'emit');
     component.itemId = undefined;
     component.onEliminar();
     expect(mockItemService.eliminarItem).not.toHaveBeenCalled();
+    expect(component.cerrar.emit).not.toHaveBeenCalled();
   });
 });
